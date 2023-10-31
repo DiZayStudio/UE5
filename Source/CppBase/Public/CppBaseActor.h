@@ -60,7 +60,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	float Frequency = 4.0;
 
-	std::vector<float> InitialLocation;
+	FVector InitialLocation;
 
 	UFUNCTION(BlueprintCallable)
 	void ShowInformation();
@@ -73,7 +73,7 @@ public:
 	UStaticMeshComponent* Mesh;
 	
 	UFUNCTION(BlueprintCallable)
-	void SinMovement(float time);
+	float SinMovement(float time);
 
 private:
 	
