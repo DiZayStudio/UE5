@@ -21,15 +21,14 @@ void ACppBaseActor::BeginPlay()
 	//ShowInformation();
 	ShowActorInformation();
 
-	InitialLocation = FVector(0.0f, 0.0f, 0.0f);
-	SetActorLocation(InitialLocation);
+	//InitialLocation = FVector(0.0f, 0.0f, 0.0f);
+	InitialLocation = GetActorLocation();
 }
 
 // Called every frame
 void ACppBaseActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void ACppBaseActor::ShowInformation() {
@@ -50,9 +49,12 @@ void ACppBaseActor::ShowActorInformation() {
 	UE_LOG(LogTemp, Display, TEXT("IsAlive: %i"), IsAlive);
 }
 
-float ACppBaseActor::SinMovement(float time) {
-	
-	return Amplitude * FMath::Sin(time * Frequency);
+void ACppBaseActor::SinMovement(float time) {
+	FVector NewLocation;
+	NewLocation.X = InitialLocation.X;
+	NewLocation.Y = InitialLocation.Y;
+	NewLocation.Z = InitialLocation.Z + Amplitude * FMath::Sin(time * Frequency);
+	SetActorLocation(NewLocation);
 }
 
 

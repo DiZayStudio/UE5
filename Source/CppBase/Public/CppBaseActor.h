@@ -54,10 +54,10 @@ protected:
 	UPROPERTY(EditInstanceOnly)
 	bool IsAlive = true;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditInstanceOnly)
 	float Amplitude = 70.0;
 	
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditInstanceOnly)
 	float Frequency = 4.0;
 
 	FVector InitialLocation;
@@ -73,7 +73,7 @@ public:
 	UStaticMeshComponent* Mesh;
 	
 	UFUNCTION(BlueprintCallable)
-	float SinMovement(float time);
+	void SinMovement(float time);
 
 private:
 	
